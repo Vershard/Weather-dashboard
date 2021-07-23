@@ -25,7 +25,7 @@ $(document).ready(function () {
     function getCurrentWeather(searchValue) {
         console.log("GET CURRENT WEATHER SEARCH VALUE", searchValue)
 
-        var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&appid=" + apiKey + "&units=imperial";
+        var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + searchValue + "&appid=" + apiKey + "&units=imperial";
 
         $.ajax({
             type: "GET",
@@ -50,7 +50,7 @@ $(document).ready(function () {
                 $("#currentWeather").empty();
                 var cityTitle = $("<h3>").addClass("card-title").text(data.name);
                 var card = $("<div>").addClass("card");
-                var icon = $("<img>").addClass("card-text").attr("src", "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png")
+                var icon = $("<img>").addClass("card-text").attr("src", "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png")
                 var temp = $("<p>").addClass("card-text").text("Temperature: " + data.main.temp + " F");
                 var humid = $("<p>").addClass("card-text").text("Humidity: " + data.main.humidity + "%");
                 var wind = $("<p>").addClass("card-text").text("Wind Speed: " + data.wind.speed + "MPH");
@@ -68,7 +68,7 @@ $(document).ready(function () {
     function getUVIndex(coord) {
         console.log("COORDINATES INSIDE UV FUNCTION", coord)
 
-        var queryURL = "http://api.openweathermap.org/data/2.5/uvi?lat=" + coord.lat + "&lon=" + coord.lon + "&appid=" + apiKey + "&units=imperial";
+        var queryURL = "https://api.openweathermap.org/data/2.5/uvi?lat=" + coord.lat + "&lon=" + coord.lon + "&appid=" + apiKey + "&units=imperial";
         $.ajax({
             type: "GET",
             url: queryURL
@@ -92,7 +92,7 @@ $(document).ready(function () {
     }
 
     function getfiveDay(searchValue) {
-        var queryURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + searchValue + "&appid=" + apiKey + "&units=imperial";
+        var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + searchValue + "&appid=" + apiKey + "&units=imperial";
 
         $.ajax({
             type: "GET",
